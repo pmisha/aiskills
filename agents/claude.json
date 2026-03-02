@@ -3,6 +3,6 @@
   "model": "claude-sonnet-4-6",
   "max_tokens": 8096,
   "temperature": 1.0,
-  "system_prompt_file": "prompts/system/claude-default.md",
+  "system_prompt_file": "prompts/system/default.md",
   "description": "Default Claude agent configuration"
 }

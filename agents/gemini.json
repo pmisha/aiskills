@@ -3,6 +3,6 @@
   "model": "gemini-2.0-flash",
   "max_tokens": 8096,
   "temperature": 1.0,
-  "system_prompt_file": "prompts/system/gemini-default.md",
+  "system_prompt_file": "prompts/system/default.md",
   "description": "Default Gemini agent configuration"
 }

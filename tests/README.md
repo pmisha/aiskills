@@ -1,30 +1,26 @@
 # Tests
 
-Tests for skills, prompts, and agent configurations.
-
-## Structure
-
-```
-tests/
-├── claude/        # Tests for Claude-specific skills
-├── gemini/        # Tests for Gemini-specific skills
-└── shared/        # Tests for shared/cross-agent skills
-```
+Tests for skills and agent configurations. All tests live directly in this directory.
 
 ## Running Tests
 
 ```bash
-# Python (pytest)
+# Python
 pytest tests/
 
-# Node (if applicable)
+# Node
 npm test
 ```
 
-## Test Format
+## Writing a Test
 
-Each test file tests a skill by:
-1. Loading the prompt template
-2. Filling in test inputs
-3. Calling the agent
-4. Asserting the output matches expectations
+Each test should:
+
+1. Load the skill template from `skills/<skill-name>.md`
+2. Fill in the `{{variable}}` placeholders with test inputs
+3. Call the agent using the config from `agents/<agent>.json`
+4. Assert the output matches expected shape or content
+
+## File Naming
+
+Use `test-<skill-name>.py` or `test-<skill-name>.js`. Example: `test-summarize.py`.

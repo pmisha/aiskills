@@ -10,14 +10,14 @@ This repo contains AI skills, prompt templates, and agent configurations for mul
 
 - **Skills**: Prompt-based skills use `.md` files; code-based skills use `.py` or `.js`.
 - **Naming**: Use kebab-case for all file and folder names (e.g., `summarize-text.md`).
-- **Agent-specific vs shared**: Place skills that only work with one agent under `skills/<agent>/`. Cross-compatible skills go in `skills/shared/`.
+- **All skills are agent-agnostic**: Skills go directly in `skills/` — no provider subdirectories.
 - **Prompts**: System prompts live in `prompts/system/`. Reusable templates in `prompts/templates/`.
 
 ## Key Directories
 
-- `skills/` — Main library of AI skills
-- `agents/` — Agent configuration files (models, parameters, system prompts)
-- `prompts/` — Raw prompt templates
+- `skills/` — All skills (flat, no subdirectories)
+- `agents/` — One config file per provider (e.g., `agents/claude.json`)
+- `prompts/` — Prompt templates and system prompts
 - `tools/` — Tool/function definitions for function calling and MCP
 - `.claude/commands/` — Claude Code slash commands (skills invokable via `/skill-name`)
 
@@ -28,7 +28,6 @@ This repo contains AI skills, prompt templates, and agent configurations for mul
 
 ## Adding a New Skill
 
-1. Decide: agent-specific or shared?
-2. Create file in the appropriate `skills/<agent>/` or `skills/shared/` directory.
-3. Add a header block with: description, inputs, outputs, and example usage.
-4. If it should be a Claude Code slash command, add it to `.claude/commands/`.
+1. Create `skills/<skill-name>.md` with a header block (name, description, inputs).
+2. Optionally add a Claude Code slash command in `.claude/commands/<skill-name>.md`.
+3. Add a test in `tests/test-<skill-name>.py`.

@@ -1,33 +1,26 @@
 # How to Add a New Skill
 
-## 1. Choose the right location
+## 1. Create the skill file
 
-| Scenario | Location |
-|---|---|
-| Works with any AI agent | `skills/shared/` |
-| Claude-specific | `skills/claude/` |
-| Gemini-specific | `skills/gemini/` |
+Add a `.md` file directly in `skills/`. Skills are agent-agnostic by default.
 
-## 2. Create the skill file
-
-For prompt-based skills, create a `.md` file with a header block:
+For prompt-based skills, include a header block:
 
 ```markdown
 <!--
 Name: Your Skill Name
 Description: What it does
 Inputs: {{input1}} - description, {{input2}} - description
-Compatible: claude, gemini   (or just one)
 -->
 
 Your prompt here using {{input1}} and {{input2}}.
 ```
 
-## 3. Add a Claude Code slash command (optional)
+For code-based skills, use `.py` or `.js`.
 
-If you want the skill accessible via `/skill-name` in Claude Code:
+## 2. Add a Claude Code slash command (optional)
 
-Create `.claude/commands/skill-name.md`:
+If you want the skill accessible via `/skill-name` in Claude Code, create `.claude/commands/skill-name.md`:
 
 ```markdown
 # Skill Name
@@ -43,6 +36,6 @@ $ARGUMENTS
 [Paste or reference your skill prompt here]
 ```
 
-## 4. Test it
+## 3. Test it
 
-Add a test in `tests/shared/` or `tests/<agent>/` to verify the skill works as expected.
+Add a test file in `tests/` named `test-<skill-name>.py` (or `.js`) to verify the skill works as expected.
