@@ -41,7 +41,4 @@ Adding a new provider takes one config file in `agents/`.
 
 ## Contributing
 
-- Skills go in `skills/` — no provider-specific directories.
-- Use `<skill-name>.md` for prompt-based skills, `<skill-name>.py` or `<skill-name>.js` for code-based.
-- Include a header comment with name, description, and inputs.
-- See `docs/adding-a-skill.md` for the full guide.
+See [`docs/adding-a-skill.md`](docs/adding-a-skill.md) for the full guide.
