@@ -1,45 +1,47 @@
 # AI Skills
 
-An agent-agnostic AI skills library. Skills work across Claude, Gemini, and other providers.
+A provider-agnostic library of reusable AI skills, prompt templates, and agent configurations. Write a skill once — run it with Claude, Gemini, OpenAI, or any other provider.
 
 ## Structure
 
 ```
 aiskills/
-├── .claude/
-│   └── commands/          # Claude Code slash command skills
+├── skills/                # All skills — flat, no provider subdirectories
+│   ├── summarize.md
+│   └── extract-json.md
 ├── agents/                # One config file per provider
 │   ├── claude.json
 │   └── gemini.json
-├── skills/                # All skills (flat, no subdirectories)
-│   ├── summarize.md
-│   └── extract-json.md
 ├── prompts/
-│   ├── system/            # System prompts
+│   ├── system/            # Shared system prompts
 │   ├── templates/         # Reusable prompt templates
 │   └── chains/            # Multi-step prompt chains
 ├── tools/
 │   ├── mcp/               # MCP server tool definitions
 │   └── functions/         # Function/tool calling definitions
-├── tests/                 # Tests for skills
+├── tests/                 # Skill tests
 └── docs/                  # Documentation and guides
 ```
 
 ## Getting Started
 
-1. Copy `.env.example` to `.env` and fill in your API keys.
+1. Copy `.env.example` to `.env` and add your API keys.
 2. Browse `skills/` for ready-to-use skills.
-3. See `docs/adding-a-skill.md` to add your own.
+3. Pick a provider config from `agents/` to run them.
+4. See `docs/adding-a-skill.md` to write your own.
 
-## Agents
+## Supported Providers
 
-| Agent  | Provider  | Config             |
-|--------|-----------|--------------------|
-| Claude | Anthropic | `agents/claude.json` |
-| Gemini | Google    | `agents/gemini.json` |
+| Provider  | Config               |
+|-----------|----------------------|
+| Anthropic | `agents/claude.json` |
+| Google    | `agents/gemini.json` |
+
+Adding a new provider takes one config file in `agents/`.
 
 ## Contributing
 
-- Add new skills directly in `skills/` — all skills are agent-agnostic.
-- Use `<skill-name>.md` for prompt-based skills, `<skill-name>.py` for code-based.
-- Include a header comment block with name, description, and inputs.
+- Skills go in `skills/` — no provider-specific directories.
+- Use `<skill-name>.md` for prompt-based skills, `<skill-name>.py` or `<skill-name>.js` for code-based.
+- Include a header comment with name, description, and inputs.
+- See `docs/adding-a-skill.md` for the full guide.
