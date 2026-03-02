@@ -1,0 +1,36 @@
+# Environment & secrets
+.env
+*.env.local
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Node
+node_modules/
+.npm/
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output / cache
+output/
+cache/
+*.tmp
